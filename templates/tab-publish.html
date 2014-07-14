@@ -10,10 +10,14 @@
 	  	<input type="text" placeholder="到达地点">
 	  </label>
 	
-	  <a class="item item-icon-left item-icon-right">
+	  <a class="item item-icon-left item-select">
 	    <i class="icon ion-calendar"></i>
 	    出发日期
-	    <i class="icon ion-ios7-arrow-down"></i>
+		<select>
+	      <option>Blue</option>
+	      <option selected>Green</option>
+	      <option>Red</option>
+  		</select>
 	  </a>
 	
 	  <a class="item item-icon-left">
@@ -62,7 +66,11 @@
 	  	<span class="input-label">备注</span>
 	  	<input type="text" placeholder=" ">
 	  </label>
-  
 	</div>
+	
+	<button class="button button-full button-positive">
+	   发布
+	</button>
+
   </ion-content>
 </ion-view>
