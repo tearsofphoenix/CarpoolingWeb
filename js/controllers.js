@@ -27,15 +27,13 @@ angular.module('starter.controllers', [])
 			 				});
 	}else
 	{		
-		Network().post(Network().loginURL(),
-				{
-					"action"   : "login",
-					"username" : user.username,
-					"password" : user.password
-				}, function(result, errorMsg)
+		var params = NS.fetchArgs(user, ['username', 'password']);
+		params['action'] = 'login';
+		Network().post(Network().loginURL(), params, function(result, errorMsg)
 				{
 					if (result && result.status == '0')
 					{
+						DataService.userInfo = result;
 						$state.go('tab.dash');
 					}else
 					{
@@ -106,17 +104,17 @@ angular.module('starter.controllers', [])
 				 				});
 		}else
 		{
-			Network().post(Network().pathURL(), 
+			var argNames = ['start', 'end', 'start_date', 'gather_location', 'gather_time', 'user_name', 'user_phone'];
+			var params = NS.fetchArgs(path, argNames);
+			params['action'] = 'publish';
+			params['user_id'] = DataService.userInfo['uuid'];
+			
+			Network().post(Network().pathURL(), params, function(result, errorMsg)
 			{
-
-			}, function(result, errorMsg)
-			{
-				if (result && result.status == '0')
-				{
-					$state.go('tab.dash');
-				}else
-				{
-					
+				if (result && result.status == '0') {
+					$ionicPopup.alert({ title: '提示', content: '发布成功！' });
+				}else {
+					$ionicPopup.alert({ title: '提示', content: '发布失败！' });
 		 		}
 			})	
 		}		

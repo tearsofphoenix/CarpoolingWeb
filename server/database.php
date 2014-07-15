@@ -44,7 +44,7 @@ class DBManager
 			call_user_func_array($callback, array($this, $result, $context));
 		}
 				
-		mysql_free_result($result);		
+		// mysql_free_result($result);		
 	}
 };
 
