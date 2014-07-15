@@ -13,6 +13,8 @@ var Network = function() {
  	return  { 		
      	baseURL : function () { return gsBaseURL; },
 	 	loginURL : function() { return gsBaseURL + "account.php";},
+	 	pathURL : function() { return gsBaseURL + "path.php";},
+	 	
 	 	post : function(url, params, callback) {
 		 		 	var httpRequest = new XMLHttpRequest();
 				 	httpRequest.onreadystatechange = function()
@@ -42,42 +44,6 @@ var Network = function() {
   };
 
 angular.module('starter.services', [])
-
-/**
- * A simple example service that returns some data.
- */
- .factory('Network', function() {
- 
- 	var gsBaseURL = "http://127.0.0.1/~Mac003/www/server/";
- 	
- 	return  { 		
-     	baseURL : function () { return gsBaseURL; },
-	 	loginURL : function() { return gsBaseURL + "login.php";},
-	 	post : function(url, params, callback) {
-		 		 	var httpRequest = new XMLHttpRequest();
-				 	httpRequest.onreadystatechange = function()
-				 	{
-					 	if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-							 	callback(httpRequest.responseText, nil);
-							 }else{
-								 callback(nil, "An error has occured making the request");
-							 }
-					}
-					
-					var parameters = [];
-					var x;
-					for (x in params) {
-					    parameters[parameters.length] = x + "=" + encodeURIComponent(params[x]);
-					}
-					
-					var paramString = parameters.join('&');
-
-					httpRequest.open("POST", url, true);
-					httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					httpRequest.send(paramString);
-	 	}
- 	}
-  })
 
 .factory('Friends', function() {
   // Might use a resource here that returns a JSON array

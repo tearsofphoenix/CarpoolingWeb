@@ -50,13 +50,77 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, $state) {
+	$scope.gotoSearchPathView = function ()
+	{
+		NS.Log('will go');
+		$state.go('tab.fact');	
+	}	
 })
 
-.controller('FactCtrl', function($scope) {
+.controller('FactCtrl', function($scope, $state) {
+	$scope.goHome = function()
+	{
+		$state.go('tab.dash');
+	};
 })
 
-.controller('PublishCtrl', function($scope) {
+.controller('PublishCtrl', function($scope, $state, $ionicPopup) {
+	$scope.publishPath = function(path)
+	{
+		NS.Log(path);
+
+		var errorMsg = null;
+	  	if (path == undefined)
+	  	{
+		  	errorMsg = "请填写信息";
+		  	
+	  	}else if (null == path.start)
+		{
+			errorMsg = "请填写出发地点！";
+		}else if(null == path.end)
+		{
+			errorMsg = "请填写到达地点！";
+		}else if(null == path.start_date)
+		{
+			errorMsg = "请选择出发日期！";
+		}else if(null == path.gather_location)
+		{
+			errorMsg = "请填写集合地点！";
+		}else if(null == path.gather_time)
+		{
+			errorMsg = "请填写集合时间！";
+		}else if(null == path.user_name)
+		{
+			errorMsg = "请填写姓名！";
+		}else if(null == path.user_phone)
+		{
+			errorMsg = "请填写电话！";
+		}
+		
+		if (errorMsg)
+		{
+			 $ionicPopup.alert({
+				 					title: '错误',
+				 					content: errorMsg
+				 				});
+		}else
+		{
+			Network().post(Network().pathURL(), 
+			{
+
+			}, function(result, errorMsg)
+			{
+				if (result && result.status == '0')
+				{
+					$state.go('tab.dash');
+				}else
+				{
+					
+		 		}
+			})	
+		}		
+	}
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {

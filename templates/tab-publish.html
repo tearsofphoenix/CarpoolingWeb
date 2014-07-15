@@ -3,41 +3,41 @@
 	<div class="list">
 	  <label class="item item-input">
 	  	<span class="input-label">出发</span>
-	  	<input type="text" placeholder="请填写出发地点">
+	  	<input type="text" ng-model="path.start" placeholder="请填写出发地点">
 	  	</label>
 	  <label class="item item-input">
 	  	<span class="input-label">到达</span>
-	  	<input type="text" placeholder="到达地点">
+	  	<input type="text" ng-model="path.end" placeholder="到达地点">
 	  </label>
 	
 	  <label class="item item-input">
 		<i class="icon ion-calendar placeholder-icon"></i>
 	    <span class="input-label">出发日期</span>
-		<input type="date">
+		<input type="date" ng-model="path.start_date">
 	  </label>
 	
 	  <label class="item item-input">
 		<i class="icon ion-flag placeholder-icon"></i>
 	  	<span class="input-label">集合地点</span>
-	  	<input type="text" placeholder="集合地点">
+	  	<input type="text" ng-model="path.gather_location" placeholder="集合地点">
 	  </label>
 	
 	  <label class="item item-input">
 		<i class="icon ion-clock placeholder-icon"></i>
 	    <span class="input-label">集合时间</span>
-		<input type="time">
+		<input type="time" ng-model="path.gather_time">
 	  </label>
 
 	  <label class="item item-input">
 		<i class="icon ion-person placeholder-icon"></i>
 	    <span class="input-label">姓名</span>
-		<input type="text">
+		<input type="text" ng-model="path.user_name">
 	  </label>
 
 	  <label class="item item-input">
 		<i class="icon ion-ios7-telephone placeholder-icon"></i>
 	    <span class="input-label">电话</span>
-		<input type="tel">
+		<input type="tel" ng-model="path.user_phone">
 	  </label>
 
 	  <label class="item item-icon-left item-icon-right">
@@ -47,11 +47,11 @@
 	  		  	  
 	  <label class="item item-input item-stacked-label item-icon-left">
 	  	<span class="input-label">备注</span>
-	  	<input type="text" placeholder=" ">
+	  	<input type="text" placeholder=" " ng-model="path.note">
 	  </label>
 	</div>
 	
-	<button class="button button-full button-positive">
+	<button class="button button-full button-positive" ng-click="publishPath(path)">
 	   发布
 	</button>
 
