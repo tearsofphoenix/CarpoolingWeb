@@ -31,19 +31,25 @@ function publishPath($path, $messageID)
 	});
 }
 
-function searchPath($messageID)
+function searchPath($path, $messageID)
 {
 	$start = $path['start'];
 	$end = $path['end'];
 	
 	$dbManager = DBManager::manager();
-	$dbManager->runQuery("select * from path where start='$start' and end='$end' ",
+	$dbManager->runQuery("select * from path where start like '$start' or end like '$end' ",
 	function($dbManager, $result, $context) use($messageID)
 	{
 		$error = mysql_error();
 		if($error == '')
 		{
-			success(null, $messageID);
+			$data = array();
+			while($iLooper = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				array_push($data, $iLooper);
+			}
+			
+			success($data, $messageID);
 		}else
 		{
 			fail($error, $messageID);
