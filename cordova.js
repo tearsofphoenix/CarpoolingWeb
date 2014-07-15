@@ -1015,6 +1015,8 @@ function pokeNativeViaXhr() {
 }
 
 function pokeNativeViaIframe() {
+       //TODO: Isaac
+       return;
     // CB-5488 - Don't attempt to create iframe before document.body is available.
     if (!document.body) {
         setTimeout(pokeNativeViaIframe);
