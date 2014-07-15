@@ -33,7 +33,22 @@ function publishPath($path, $messageID)
 
 function searchPath($messageID)
 {
-
+	$start = $path['start'];
+	$end = $path['end'];
+	
+	$dbManager = DBManager::manager();
+	$dbManager->runQuery("select * from path where start='$start' and end='$end' ",
+	function($dbManager, $result, $context) use($messageID)
+	{
+		$error = mysql_error();
+		if($error == '')
+		{
+			success(null, $messageID);
+		}else
+		{
+			fail($error, $messageID);
+		}
+	});
 }
 
 function dispatchMessage()

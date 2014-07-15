@@ -1,9 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('SignInCtrl', function($scope, $state, $ionicPopup) 
-{	
-	console.log($scope, $state, $ionicPopup);
-	
+{		
   $scope.signIn = function(user) 
   {  	
   	var errorMsg = null;
@@ -21,10 +19,7 @@ angular.module('starter.controllers', [])
 	
 	if (errorMsg)
 	{
-		 $ionicPopup.alert({
-			 					title: '错误',
-			 					content: errorMsg
-			 				});
+		$ionicPopup.alert({ title: '错误', content: errorMsg });
 	}else
 	{		
 		var params = NS.fetchArgs(user, ['username', 'password']);
@@ -37,10 +32,7 @@ angular.module('starter.controllers', [])
 						$state.go('tab.dash');
 					}else
 					{
-						$ionicPopup.alert({
-			 					title: '错误',
-			 					content: errorMsg
-			 				})
+						$ionicPopup.alert({ title: '错误', content: errorMsg });
 			 		}
 				});				
 	}
@@ -98,10 +90,7 @@ angular.module('starter.controllers', [])
 		
 		if (errorMsg)
 		{
-			 $ionicPopup.alert({
-				 					title: '错误',
-				 					content: errorMsg
-				 				});
+			 $ionicPopup.alert({ title: '错误', content: errorMsg });
 		}else
 		{
 			var argNames = ['start', 'end', 'start_date', 'gather_location', 'gather_time', 'user_name', 'user_phone'];
@@ -121,8 +110,40 @@ angular.module('starter.controllers', [])
 	}
 })
 
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
+.controller('SearchCtrl', function($scope, Friends, $ionicPopup) {
+	$scope.searchPath = function(radar) {
+		var errorMsg = null;
+	  	if (radar == undefined)
+	  	{
+		  	errorMsg = "请填写信息";
+		  	
+	  	}else if (null == radar.start)
+		{
+			errorMsg = "请输入起点！";
+		}else if(null == radar.end)
+		{
+			errorMsg = "请输入终点！";
+		}
+		
+		if (errorMsg)
+		{
+			 $ionicPopup.alert({ title: '错误', content: errorMsg });
+		}else
+		{		
+			var params = NS.fetchArgs(radar, ['start', 'end']);
+			params['action'] = 'search';
+			Network().post(Network().pathURL(), params, function(result, errorMsg)
+					{
+						if (result && result.status == '0')
+						{
+							NS.Log(result);
+						}else
+						{
+							$ionicPopup.alert({ title: '错误', content: errorMsg });
+				 		}
+					});				
+		}	
+	}
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
