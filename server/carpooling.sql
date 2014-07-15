@@ -2,8 +2,8 @@
 -- version 4.2.5
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 2014-07-15 09:43:38
+-- Host: 127.0.0.1
+-- Generation Time: 2014-07-15 15:09:58
 -- 服务器版本： 5.6.19
 -- PHP Version: 5.4.24
 
@@ -108,14 +108,24 @@ CREATE TABLE IF NOT EXISTS `message` (
 --
 
 CREATE TABLE IF NOT EXISTS `path` (
-  `uuid` varchar(32) NOT NULL,
-  `name` text NOT NULL,
-  `start` varchar(32) NOT NULL,
-  `end` varchar(32) NOT NULL,
-  `properties` text NOT NULL,
+  `uuid` varchar(36) NOT NULL,
+  `starter` varchar(36) DEFAULT NULL,
+  `start` varchar(36) DEFAULT NULL,
+  `end` varchar(36) DEFAULT NULL,
+  `start_date` timestamp NULL DEFAULT NULL,
+  `gather_location` varchar(36) DEFAULT NULL,
+  `gather_time` time NOT NULL DEFAULT '00:00:00',
+  `properties` text,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 转存表中的数据 `path`
+--
+
+INSERT INTO `path` (`uuid`, `starter`, `start`, `end`, `start_date`, `gather_location`, `gather_time`, `properties`, `update_time`, `status`) VALUES
+('d43a1c12-0c21-11e4-82ad-81510f578bb1', 'a', 'a', 'a', '2014-07-15 13:13:36', 'a', '00:00:00', NULL, '2014-07-15 13:13:36', 0);
 
 -- --------------------------------------------------------
 
