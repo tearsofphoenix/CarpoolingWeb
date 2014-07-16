@@ -54,6 +54,7 @@ kitchensink.Views = kitchensink.Views || {};
                 label: '用户名：',
                 value: 'a@b.com',
                 icon: 'fa-rocket',
+	            scopeKey: 'loginInfo.username',
                 placeholder: '邮箱'
             })
         }),
@@ -68,9 +69,8 @@ kitchensink.Views = kitchensink.Views || {};
                 type: 'password',
                 useCustomClear: YES,
                 placeholder: '您的密码',
-                value: M.Model.create({
-                    value: 'c'
-                })
+                value: 'c',
+	            scopeKey: 'loginInfo.password',
             })
         }),
         
@@ -85,6 +85,7 @@ kitchensink.Views = kitchensink.Views || {};
 					
 					user.username = views.textfieldViews.childViews.userField.value;
 					user.password = views.passwordsView.childViews.passwordField.value;
+
                 	login(user);
                 }
             }

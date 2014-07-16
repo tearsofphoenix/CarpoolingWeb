@@ -19,12 +19,6 @@ kitchensink.Controllers = kitchensink.Controllers || {};
         // The headline which will be displayed in the headerView
         pageHeadline: '',
 
-        // the application sourcecode root path on github
-        githubApplicationRootUrl: 'https://github.com/mwaylabs/The-M-Project-Sample-Apps/blob/master/kitchensink/app/',
-
-        // The path to the specific source on github
-        sourceCodePath: '',
-
         // Called from the router when the application starts
         applicationStart: function(settings) {
             var _layout = M.SwitchMenuHeaderContentLayout.extend({

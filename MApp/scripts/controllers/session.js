@@ -5,22 +5,17 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 (function() {
     'use strict';
 
-    kitchensink.Controllers.LoginController = kitchensink.Controllers.AbstractController.extend({
+    kitchensink.Controllers.SessionController = kitchensink.Controllers.AbstractController.extend({
 
-        pageHeadline: '登录',
+        pageHeadline: '信息',
 
-        sourceCodePath: 'scripts/views/login.js',
-
-        loginInfo: M.Model.create({
-            username: '',
-            password: ''
-        }),
+        sourceCodePath: 'scripts/views/session.js',
 
         _initViews: function() {
 
             // Create the ContentView with the controller (this) as scope
             if( !this.contentView ) {
-                this.contentView = kitchensink.Views.LoginView.create(this, null, true);
+                this.contentView = kitchensink.Views.SessionView.create(this, null, true);
             }
 
             // Create the HeaderView with the controller (this) as scope
@@ -34,8 +29,8 @@ kitchensink.Controllers = kitchensink.Controllers || {};
         // Register menu item for this view
         registerToMenu: function( menuController ){
             menuController.registerMenuItem({
-                value: '登录',
-                goto: 'login'
+                value: '信息',
+                goto: 'session'
             });
         }
     });

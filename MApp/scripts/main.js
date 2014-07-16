@@ -55,11 +55,15 @@
                     '': 'menuController',
                     'login': 'loginController',
                     'publishpath' : 'publishPathController',
+                    'session' : 'sessionController',
+                    'lists' : 'listsController',
                     //m:routes
                 },
                 menuController: global.kitchensink.Controllers.MenuController.create(),
                 loginController: global.kitchensink.Controllers.LoginController.create(),
                 publishPathController: global.kitchensink.Controllers.PublishPathController.create(),
+                sessionController : global.kitchensink.Controllers.SessionController.create(),
+                listsController : global.kitchensink.Controllers.ListsController.create(),
                 //m:controllers
             }
         });

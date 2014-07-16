@@ -5,22 +5,17 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 (function() {
     'use strict';
 
-    kitchensink.Controllers.LoginController = kitchensink.Controllers.AbstractController.extend({
+    kitchensink.Controllers.ListsController = kitchensink.Controllers.AbstractController.extend({
 
-        pageHeadline: '登录',
+        pageHeadline: 'Lists',
 
-        sourceCodePath: 'scripts/views/login.js',
-
-        loginInfo: M.Model.create({
-            username: '',
-            password: ''
-        }),
+        sourceCodePath: 'scripts/views/lists.js',
 
         _initViews: function() {
 
             // Create the ContentView with the controller (this) as scope
             if( !this.contentView ) {
-                this.contentView = kitchensink.Views.LoginView.create(this, null, true);
+                this.contentView = kitchensink.Views.ListsView.create(this, null, true);
             }
 
             // Create the HeaderView with the controller (this) as scope
@@ -32,12 +27,13 @@ kitchensink.Controllers = kitchensink.Controllers || {};
         },
 
         // Register menu item for this view
-        registerToMenu: function( menuController ){
+        registerToMenu: function( menuController ) {
             menuController.registerMenuItem({
-                value: '登录',
-                goto: 'login'
+                value: 'M.ListView',
+                goto: 'lists'
             });
         }
+
     });
 
 })();
