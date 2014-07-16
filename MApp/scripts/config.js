@@ -24,7 +24,7 @@
 
         // A flag whether to enable the debugView or not.
         // Shake your device to toggle the debugView.
-        debugView: YES
+        debugView: NO
     };
 
 })(this);
