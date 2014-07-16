@@ -53,31 +53,13 @@
             routing: {
                 routes: {
                     '': 'menuController',
-                    'forms': 'formsController',
+                    'login': 'loginController',
                     'buttons': 'buttonsController',
-                    'modals': 'modalsController',
-                    'lists': 'listsController',
-                    'texts': 'textsController',
-                    'tabbars': 'tabbarsController',
-                    'tabbar(/:tab)': 'tabbarController',
-                    'transitions(/:name)': 'transitionsController',
-                    'i18n': 'i18n',
-                    'split(/:menuId)(/:viewId)': 'split',
-                    'movables': 'movables',
                     //m:routes
                 },
                 menuController: global.kitchensink.Controllers.MenuController.create(),
-                formsController: global.kitchensink.Controllers.FormsController.create(),
+                loginController: global.kitchensink.Controllers.LoginController.create(),
                 buttonsController: global.kitchensink.Controllers.ButtonsController.create(),
-                listsController: global.kitchensink.Controllers.ListsController.create(),
-                modalsController: global.kitchensink.Controllers.ModalsController.create(),
-                textsController: global.kitchensink.Controllers.TextsController.create(),
-                tabbarsController: global.kitchensink.Controllers.TabbarsController.create(),
-                tabbarController: global.kitchensink.Controllers.TabbarController.create(),
-                transitionsController: global.kitchensink.Controllers.TransitionsController.create(),
-                i18n: global.kitchensink.Controllers.I18nController.create(),
-                split: global.kitchensink.Controllers.SplitController.create(),
-                movables: global.kitchensink.Controllers.MovablesController.create(),
                 //m:controllers
             }
         });
