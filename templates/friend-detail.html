@@ -4,7 +4,14 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view title="{{friend.name}}">
-  <ion-content has-header="true" padding="true">
+<ion-pane ng-controller="MessageCtrl">
+  <ion-header-bar frosted-bar title="聊天内容" type="bar-frosted"></ion-header-bar>
+  <ion-content has-header="true" has-footer="true" padding="true" start-y="120">
+    <ol class="messages">
+		<li ng-repeat="message in messages" ion-bind-html-unsafe="message.content"></li>
+	</ol>
   </ion-content>
-</ion-view>
+  <footer class="bar bar-footer bar-frosted">
+    <button class="button button-clear button-positive" ng-click="addMessage()">发送</button>
+  </footer>
+</ion-pane>

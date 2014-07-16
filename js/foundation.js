@@ -15,9 +15,9 @@ var NS = {
 
 var Network = function() {
  
-/*  	var gsBaseURL = "http://127.0.0.1/~Mac003/www/server/"; */
+ 	var gsBaseURL = "http://127.0.0.1/~Mac003/www/server/";
 /*  	var gsBaseURL = "http://192.168.1.6/~veritas/CarpoolingWeb/server/"; */
- 	var gsBaseURL = "http://jewery.info/carpooling/";
+/*  	var gsBaseURL = "http://jewery.info/carpooling/"; */
  	
  	return  { 		
      	baseURL : function () { return gsBaseURL; },
