@@ -5,17 +5,28 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 (function() {
     'use strict';
 
-    kitchensink.Controllers.LoginController = kitchensink.Controllers.AbstractController.extend({
+    kitchensink.Controllers.PublishPathController = kitchensink.Controllers.AbstractController.extend({
 
-        pageHeadline: '登录',
+        pageHeadline: '发布路线',
 
-        sourceCodePath: 'scripts/views/login.js',
+        sourceCodePath: 'scripts/views/publishpath.js',
+
+        path: M.Model.create({
+            start: '',
+            end: '',
+            start_date: '1383751054966',
+            gather_location : '',
+            gather_date : '1383751054966',
+            user_name : '',
+            user_phone : '',
+            note : '',
+        }),
 
         _initViews: function() {
 
             // Create the ContentView with the controller (this) as scope
             if( !this.contentView ) {
-                this.contentView = kitchensink.Views.LoginView.create(this, null, true);
+                this.contentView = kitchensink.Views.PublishPathView.create(this, null, true);
             }
 
             // Create the HeaderView with the controller (this) as scope
@@ -29,8 +40,8 @@ kitchensink.Controllers = kitchensink.Controllers || {};
         // Register menu item for this view
         registerToMenu: function( menuController ){
             menuController.registerMenuItem({
-                value: '登录',
-                goto: 'login'
+                value: '发布路线',
+                goto: 'publishpath'
             });
         }
     });

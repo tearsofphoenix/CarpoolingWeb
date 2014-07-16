@@ -54,12 +54,12 @@
                 routes: {
                     '': 'menuController',
                     'login': 'loginController',
-                    'buttons': 'buttonsController',
+                    'publishpath' : 'publishPathController',
                     //m:routes
                 },
                 menuController: global.kitchensink.Controllers.MenuController.create(),
                 loginController: global.kitchensink.Controllers.LoginController.create(),
-                buttonsController: global.kitchensink.Controllers.ButtonsController.create(),
+                publishPathController: global.kitchensink.Controllers.PublishPathController.create(),
                 //m:controllers
             }
         });

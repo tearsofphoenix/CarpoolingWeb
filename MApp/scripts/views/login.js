@@ -39,7 +39,7 @@ kitchensink.Views = kitchensink.Views || {};
 					});				
 		}
 	  };
-
+	  
     kitchensink.Views.LoginView = M.View.extend({
         // The view should be in a grid
         grid: 'col-xs-12'
