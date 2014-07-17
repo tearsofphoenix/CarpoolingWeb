@@ -1,6 +1,6 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Collections = kitchensink.Collections || {};
+VP.Collections = VP.Collections || {};
 
 /**
  * A collection is just a list of models and even more.
@@ -16,10 +16,10 @@ kitchensink.Collections = kitchensink.Collections || {};
     'use strict';
 
     // Create a collection which inherits from M.Collection
-    kitchensink.Collections.TmpviewsCollection = M.Collection.extend({
+    VP.Collections.TmpviewsCollection = M.Collection.extend({
 
         // Assign model for the controller
-        model: kitchensink.Models.TmpviewModel
+        model: VP.Models.TmpviewModel
 
     });
 

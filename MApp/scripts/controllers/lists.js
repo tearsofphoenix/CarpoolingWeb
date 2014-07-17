@@ -1,11 +1,11 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Controllers = kitchensink.Controllers || {};
+VP.Controllers = VP.Controllers || {};
 
 (function() {
     'use strict';
 
-    kitchensink.Controllers.ListsController = kitchensink.Controllers.AbstractController.extend({
+    VP.Controllers.ListsController = VP.Controllers.AbstractController.extend({
 
         pageHeadline: 'Lists',
 
@@ -15,12 +15,12 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 
             // Create the ContentView with the controller (this) as scope
             if( !this.contentView ) {
-                this.contentView = kitchensink.Views.ListsView.create(this, null, true);
+                this.contentView = VP.Views.ListsView.create(this, null, true);
             }
 
             // Create the HeaderView with the controller (this) as scope
             if( !this.headerView ) {
-                this.headerView = kitchensink.Views.BackheaderView.create(this, null, true);
+                this.headerView = VP.Views.BackheaderView.create(this, null, true);
             }
 
             this._applyViews();

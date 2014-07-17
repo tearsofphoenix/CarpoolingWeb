@@ -1,11 +1,11 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Views = kitchensink.Views || {};
+VP.Views = VP.Views || {};
 
 (function() {
     'use strict';
 
-    kitchensink.Views.BackheaderView = M.ToolbarView.extend({
+    VP.Views.BackheaderView = M.ToolbarView.extend({
         scopeKey: 'pageHeadline'
     }, {
 
@@ -25,7 +25,7 @@ kitchensink.Views = kitchensink.Views || {};
                 icon: 'fa-angle-left',
                 events: {
                     tap: function() {
-                        kitchensink.navigate({
+                        VP.navigate({
                             route: '/',
                             transition: M.PageTransitions.CONST.MOVE_TO_RIGHT_FROM_LEFT
                         });

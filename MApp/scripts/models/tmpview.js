@@ -1,6 +1,6 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Models = kitchensink.Models || {};
+VP.Models = VP.Models || {};
 
 
 /**).
@@ -16,7 +16,7 @@ kitchensink.Models = kitchensink.Models || {};
 (function() {
     'use strict';
 
-    kitchensink.Models.TmpviewModel = M.Model.extend({
+    VP.Models.TmpviewModel = M.Model.extend({
         // Here you can specify the model properties
     });
 

@@ -1,6 +1,6 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Views = kitchensink.Views || {};
+VP.Views = VP.Views || {};
 
 (function() {
     'use strict';
@@ -40,7 +40,7 @@ kitchensink.Views = kitchensink.Views || {};
 		}
 	  };
 	  
-    kitchensink.Views.LoginView = M.View.extend({
+    VP.Views.LoginView = M.View.extend({
         // The view should be in a grid
         grid: 'col-xs-12'
     }, {

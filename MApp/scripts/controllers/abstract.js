@@ -1,11 +1,11 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Controllers = kitchensink.Controllers || {};
+VP.Controllers = VP.Controllers || {};
 
 (function() {
     'use strict';
 
-    kitchensink.Controllers.AbstractController = M.Controller.extend({
+    VP.Controllers.AbstractController = M.Controller.extend({
 
         // Contains the current headerView
         headerView: null,
@@ -24,8 +24,8 @@ kitchensink.Controllers = kitchensink.Controllers || {};
             var _layout = M.SwitchMenuHeaderContentLayout.extend({
 
             }).create(this, null, true);
-            kitchensink.setLayout(_layout);
-            kitchensink.router.menuController._initMenu(settings);
+            VP.setLayout(_layout);
+            VP.router.menuController._initMenu(settings);
             this._initViews(settings);
         },
 
@@ -33,8 +33,8 @@ kitchensink.Controllers = kitchensink.Controllers || {};
         show: function(settings) {
             this._initViews(settings);
             var _layout = M.SwitchMenuHeaderContentLayout.extend({}).create(this, null, true);
-            if(_layout._type === kitchensink.getLayout()._type){
-                kitchensink.getLayout().startTransition();
+            if(_layout._type === VP.getLayout()._type){
+                VP.getLayout().startTransition();
             } else {
                 this.applicationStart();
             }
@@ -42,16 +42,16 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 
         // Called for every controller when the application is ready. applicationStart is always called before.
         applicationReady: function(){
-            this.registerToMenu(kitchensink.router.menuController);
+            this.registerToMenu(VP.router.menuController);
         },
 
         // This method assign the header and content view to the current layout.
         _applyViews: function() {
             if(!this.menuView){
-                this.menuView = kitchensink.Views.MenuView.create(kitchensink.router.menuController, null, true);
+                this.menuView = VP.Views.MenuView.create(VP.router.menuController, null, true);
             }
 
-            kitchensink.getLayout().applyViews({
+            VP.getLayout().applyViews({
                 header: this.headerView,
                 content: this.contentView,
                 menuContent: this.menuView
@@ -72,8 +72,8 @@ kitchensink.Controllers = kitchensink.Controllers || {};
         },
 
         toggleMenu: function(){
-            if(kitchensink.getLayout().menu){
-                kitchensink.getLayout().menu.toggle();
+            if(VP.getLayout().menu){
+                VP.getLayout().menu.toggle();
             }
 
         }

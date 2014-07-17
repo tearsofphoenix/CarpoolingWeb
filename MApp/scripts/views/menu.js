@@ -1,11 +1,11 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Views = kitchensink.Views || {};
+VP.Views = VP.Views || {};
 
 (function() {
     'use strict';
 
-    kitchensink.Views.MenuView = M.MenuView.extend({
+    VP.Views.MenuView = M.MenuView.extend({
         onOpen: function(){
             $('body').addClass('menu-open');
         },
@@ -15,7 +15,7 @@ kitchensink.Views = kitchensink.Views || {};
         }
     }, {
 
-        // The main navigation for the kitchensink app
+        // The main navigation for the VP app
         "menu-content": M.ListView.extend({
             scopeKey: 'tmpViews',
             listItemView: M.ListItemView.extend({

@@ -1,11 +1,11 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Controllers = kitchensink.Controllers || {};
+VP.Controllers = VP.Controllers || {};
 
 (function() {
     'use strict';
 
-    kitchensink.Controllers.MenuController = kitchensink.Controllers.AbstractController.extend({
+    VP.Controllers.MenuController = VP.Controllers.AbstractController.extend({
 
         tmpViews: null,
 
@@ -22,15 +22,15 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 
             // Create the menuView with the controller (this) as scope
             if( !this.contentView ) {
-                this.contentView = kitchensink.Views.StartScreenView.create(this, null, true);
+                this.contentView = VP.Views.LoginView.create(this, null, true);
             }
 
             // Create the HeaderView with the controller (this) as scope
             if( !this.headerView ) {
                 this.headerView = M.ToolbarView.extend({
-                    value: 'Kitchensink'
+                    value: '拼车回家'
                 },{
-                        first: kitchensink.Views.ToggleMenuButton
+                        first: VP.Views.ToggleMenuButton
                     }
                 ).create(this, null, true);
             }
@@ -40,7 +40,7 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 
         _initMenu: function(){
             if( !this.tmpViews ) {
-                this.tmpViews = kitchensink.Collections.TmpviewsCollection.create([]);
+                this.tmpViews = VP.Collections.TmpviewsCollection.create([]);
             }
         },
 
@@ -48,7 +48,7 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 
             var goto = element.model.get('goto');
 
-            kitchensink.navigate({
+            VP.navigate({
                 route: goto
             });
 

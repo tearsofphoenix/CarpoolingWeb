@@ -1,9 +1,9 @@
-kitchensink.Views = kitchensink.Views || {};
+VP.Views = VP.Views || {};
 
 (function() {
     'use strict';
 
-    kitchensink.Views.ToggleMenuButton = M.ButtonView.extend({
+    VP.Views.ToggleMenuButton = M.ButtonView.extend({
         icon: 'fa-bars',
         cssClass: 'menu-button',
         events: {

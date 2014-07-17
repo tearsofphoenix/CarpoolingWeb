@@ -1,11 +1,11 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Controllers = kitchensink.Controllers || {};
+VP.Controllers = VP.Controllers || {};
 
 (function() {
     'use strict';
 
-    kitchensink.Controllers.LoginController = kitchensink.Controllers.AbstractController.extend({
+    VP.Controllers.LoginController = VP.Controllers.AbstractController.extend({
 
         pageHeadline: '登录',
 
@@ -20,12 +20,12 @@ kitchensink.Controllers = kitchensink.Controllers || {};
 
             // Create the ContentView with the controller (this) as scope
             if( !this.contentView ) {
-                this.contentView = kitchensink.Views.LoginView.create(this, null, true);
+                this.contentView = VP.Views.LoginView.create(this, null, true);
             }
 
             // Create the HeaderView with the controller (this) as scope
             if( !this.headerView ) {
-                this.headerView = kitchensink.Views.BackheaderView.create(this, null, true);
+                this.headerView = VP.Views.BackheaderView.create(this, null, true);
             }
 
             this._applyViews();

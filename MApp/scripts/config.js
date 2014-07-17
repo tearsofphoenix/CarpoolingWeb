@@ -5,12 +5,12 @@
     // PLEASE DON'T CHANGE OR REMOVE THE COMMENTS.
     // All comments in this file are necessary for the build process.
     
-    global.kitchensink = global.kitchensink || {};
+    global.VP = global.VP || {};
 
-    global.kitchensink.mconfig = {
+    global.VP.mconfig = {
 
         // The global namespace for the app. Needed by the framework.
-        name: 'kitchensink',
+        name: 'VP',
 
         // Defines the languages for the app.
         // All languages files are located in app/i18n

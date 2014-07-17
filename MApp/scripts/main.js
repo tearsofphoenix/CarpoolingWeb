@@ -44,12 +44,12 @@
 
     // The app gets initialized with the configuration provided from the config.js
     // and gets appended to the global (window) namespace named like the app
-    global.kitchensink = M.Application.extend().create(global.kitchensink.mconfig);
+    global.VP = M.Application.extend().create(global.VP.mconfig);
 
     $(document).ready(function() {
 
          // If the DOM is ready, initialize the router
-        global.kitchensink.start({
+        global.VP.start({
             routing: {
                 routes: {
                     '': 'menuController',
@@ -59,11 +59,11 @@
                     'lists' : 'listsController',
                     //m:routes
                 },
-                menuController: global.kitchensink.Controllers.MenuController.create(),
-                loginController: global.kitchensink.Controllers.LoginController.create(),
-                publishPathController: global.kitchensink.Controllers.PublishPathController.create(),
-                sessionController : global.kitchensink.Controllers.SessionController.create(),
-                listsController : global.kitchensink.Controllers.ListsController.create(),
+                menuController: global.VP.Controllers.MenuController.create(),
+                loginController: global.VP.Controllers.LoginController.create(),
+                publishPathController: global.VP.Controllers.PublishPathController.create(),
+                sessionController : global.VP.Controllers.SessionController.create(),
+                listsController : global.VP.Controllers.ListsController.create(),
                 //m:controllers
             }
         });

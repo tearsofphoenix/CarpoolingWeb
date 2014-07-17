@@ -1,11 +1,11 @@
-/*global kitchensink*/
+/*global VP*/
 
-kitchensink.Views = kitchensink.Views || {};
+VP.Views = VP.Views || {};
 
 (function() {
     'use strict';
     
-    kitchensink.Views.SessionView = M.View.extend({
+    VP.Views.SessionView = M.View.extend({
         // The view should be in a grid
         grid: 'col-xs-12'
     }, {
@@ -13,17 +13,13 @@ kitchensink.Views = kitchensink.Views || {};
 	            grid: 'row',
 	            value: ''
 	        }, {
-	        
-            customListExample: M.View.extend({
-                value: 'Custom List',
-                grid: 'col-xs-12'
-            }, {
-
-                linkedCustomIconOnList: M.ListView.extend({
+	        	        
+                listView: M.ListView.extend({
 
                     grid: 'col-xs-12',
 
                     // The list view's items
+/*
                     value: M.Collection.create([
 
                         {headline: 'Sir Timothy John "Tim" Berners-Lee', text: 'The inventor of the World Wide Web.', image: 'http://upload.wikimedia.org/wikipedia/commons/8/83/Tim_Berners-Lee-Knight-crop.jpg'},
@@ -33,6 +29,11 @@ kitchensink.Views = kitchensink.Views || {};
                         {headline: 'William Henry "Bill" Gates III', text: 'The former chief executive and current chairman of Microsoft', image: 'http://upload.wikimedia.org/wikipedia/commons/b/bd/Dts_news_bill_gates_wikipedia.JPG'}
 
                     ]),
+*/
+				contentBinding: {
+				            target: VP.Controllers.SessionController,
+				            property: 'sessionList'
+				        },
 
                     // This property contains the listitem view
                     listItemView: M.ListItemView.extend({
@@ -50,10 +51,7 @@ kitchensink.Views = kitchensink.Views || {};
                         }
 
                     })
-
-                })
-            }),
-	        
-	 	        }),
+                })	        
+	 	 }),
 	});
 })();
