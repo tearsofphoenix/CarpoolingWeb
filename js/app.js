@@ -14,9 +14,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
+    
+    NS.Log(StatusBar);
+    
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
+      StatusBar.hide();
     }
   });
 })

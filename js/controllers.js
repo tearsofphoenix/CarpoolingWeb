@@ -41,6 +41,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('DashCtrl', function($scope, $state) {
+  
 	$scope.gotoSearchPathView = function ()
 	{
 		NS.Log('will go');
